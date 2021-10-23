@@ -1,6 +1,75 @@
-import React from 'react';
-import HomePage from '../components/HomePage';
+import {useState} from 'react';
+import { useDispatch } from 'react-redux';
+import { authOperations } from '../redux/auth/auth-operations';
 
-export default function HomeView() {
-    return <HomePage />;
+export default function RegisterView() {
+    const dispatch = useDispatch();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleChange = ({ target: { name, value } }) => {
+        switch (name) {
+            case 'name':
+                return setName(value);
+            case 'email':
+                return setEmail(value);
+            case 'password':
+                return setPassword(value);
+            default:
+                return;
+        }
+    }
+    const handleSubmit = e => {
+        e.preventDefault();
+        dispatch(authOperations.register({ name, email, password }));
+        setName('');
+        setEmail('');
+        setPassword('');
+    }
+
+    return (
+        <div>
+            <h1> Registration page</h1>
+            <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
+                <label className={s.label}>
+                        <span className={s.title}>Name</span>
+                        <input
+                            className={s.input}
+                            type="text"
+                            name="name"
+                            value={name}
+                            onChange={handleChange}
+                            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+                            required
+                        />
+                    </label>
+                    <label className={s.label}>
+                        <span className={s.title}>Email</span>
+                        <input
+                            className={s.input}
+                            type="tel"
+                            name="number"
+                            value={email}
+                            onChange={handleChange}
+                            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+                            required
+                        />
+                </label>
+                <label className={s.label}>
+                        <span className={s.title}>Password</span>
+                        <input
+                            className={s.input}
+                            type="tel"
+                            name="number"
+                            value={password}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <button className={s.button} type="submit">Register</button>
+                </form>
+        </div>
+    )
 }
