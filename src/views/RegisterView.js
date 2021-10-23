@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { authOperations } from '../redux/auth/auth-operations';
+import { register } from '../redux/auth/auth-operations';
 
 export default function RegisterView() {
     const dispatch = useDispatch();
@@ -22,7 +22,7 @@ export default function RegisterView() {
     }
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(authOperations.register({ name, email, password }));
+        dispatch(register({ name, email, password }));
         setName('');
         setEmail('');
         setPassword('');
@@ -31,44 +31,44 @@ export default function RegisterView() {
     return (
         <div>
             <h1> Registration page</h1>
-            <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
-                <label className={s.label}>
-                        <span className={s.title}>Name</span>
+            <form onSubmit={handleSubmit} className='' autoComplete="off">
+                <label className=''>
+                        <span className=''>Name</span>
                         <input
-                            className={s.input}
+                            className=''
                             type="text"
                             name="name"
                             value={name}
                             onChange={handleChange}
-                            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-                            required
+                            // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                            // title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+                            // required
                         />
                     </label>
-                    <label className={s.label}>
-                        <span className={s.title}>Email</span>
+                    <label className=''>
+                        <span className=''>Email</span>
                         <input
-                            className={s.input}
-                            type="tel"
-                            name="number"
+                            className=''
+                            type="email"
+                            name="email"
                             value={email}
                             onChange={handleChange}
-                            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
-                            required
+                            // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                            // title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+                            // required
                         />
                 </label>
-                <label className={s.label}>
-                        <span className={s.title}>Password</span>
+                <label className=''>
+                        <span className=''>Password</span>
                         <input
-                            className={s.input}
-                            type="tel"
-                            name="number"
+                            className=''
+                            type="password"
+                            name="password"
                             value={password}
                             onChange={handleChange}
                         />
                     </label>
-                    <button className={s.button} type="submit">Register</button>
+                    <button className='' type="submit">Register</button>
                 </form>
         </div>
     )

@@ -9,7 +9,7 @@ const Navigation = () => (
             
             activeClassName="activeLink">Home</StyledNavLink>
         <StyledNavLink
-            to="/movies"
+            to="/contacts"
            
             activeClassName="activeLink">Contacts</StyledNavLink>
     </StyledNav>

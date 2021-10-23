@@ -14,7 +14,7 @@ import {
 
 import storage from 'redux-persist/lib/storage';
 import contactsReducer from './contacts/contacts-reducer';
-import authReducer from './contacts/auth-reducer';
+import authReducer from './auth/auth-slice';
 
 //for watching prevState, action, nextState in console
 const middleware = [...getDefaultMiddleware({
@@ -44,7 +44,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
     reducer: {
-        auth: persistedReducer(authPersistConfig, authReducer),
+        auth: persistReducer(authPersistConfig, authReducer),
         contacts: contactsReducer,
     },
     middleware,

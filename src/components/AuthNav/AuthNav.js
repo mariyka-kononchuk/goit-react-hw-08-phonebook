@@ -1,18 +1,18 @@
 import React from 'react';
 import { StyledNavLink, StyledNav } from './AuthNav.styled.jsx'
 
-const Navigation = () => (
+const AuthNav = () => (
     <StyledNav>
         <StyledNavLink
             exact
-            to="/"
+            to="/register"
             
-            activeClassName="activeLink">Contacts</StyledNavLink>
+            activeClassName="activeLink">Register</StyledNavLink>
         <StyledNavLink
-            to="/movies"
+            to="/login"
            
-            activeClassName="activeLink">Movies</StyledNavLink>
+            activeClassName="activeLink">Login</StyledNavLink>
     </StyledNav>
 )
 
-export default Navigation;
+export default AuthNav;

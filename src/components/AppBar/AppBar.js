@@ -1,7 +1,7 @@
 import React from 'react';
-import { Navigation } from '../Navigation';
-import { AuthNav } from '../AuthNav';
-import { UserMenu } from '../UserMenu';
+import Navigation  from '../Navigation';
+import  AuthNav  from '../AuthNav';
+import  UserMenu  from '../UserMenu';
 
 
 const AppBar = () => (

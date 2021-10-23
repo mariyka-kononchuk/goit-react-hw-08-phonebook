@@ -1,15 +1,15 @@
 import React from 'react';
-import ContactForm from '../ContactForm';
-import Filter from '../Filter';
-import ContactList from '../ContactList';
-import s from './App.module.css';
+import ContactForm from '../components/ContactForm';
+import Filter from '../components/Filter';
+import ContactList from '../components/ContactList';
+//import s from './App.module.css';
 
-export default function HomeView() {
+export default function ContactsView() {
     return (
         <div>
-          <h1 className={s.titlePhonebbok}>Phonebook</h1>
+          <h1 className=''>Phonebook</h1>
           <ContactForm />
-          <h2 className={s.titleContacts}>Contacts</h2>
+          <h2 className=''>Contacts</h2>
           <Filter />
           <ContactList />
         </div>)

@@ -1,6 +1,6 @@
 import React from 'react';
-import HomePage from '../components/HomePage';
+//import HomePage from '../components/HomePage';
 
-export default function HomeView() {
-    return <HomePage />;
+export default function LoginView() {
+    return <div>Login</div>;
 }

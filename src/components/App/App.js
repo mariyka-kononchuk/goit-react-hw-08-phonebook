@@ -7,9 +7,10 @@ import HomeView from '../../views/HomeView';
 import LoginView from '../../views/LoginView';
 import RegisterView from '../../views/RegisterView';
 import ContactsView from '../../views/ContactsView';
+import AppBar from '../AppBar';
 
 
-function App({ fetchContacts }) {
+export default function App() {
   fetchContacts();
     return (
       <Container>
@@ -27,10 +28,10 @@ function App({ fetchContacts }) {
   
 }
 
-const mapDispatchToProps = dispatch => ({
-  fetchContacts: () => dispatch(fetchContacts())
-})
+// const mapDispatchToProps = dispatch => ({
+//   fetchContacts: () => dispatch(fetchContacts())
+// })
 
-export default connect(null, mapDispatchToProps)(App);
+// export default connect(null, mapDispatchToProps)(App);
 
 

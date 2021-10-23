@@ -1,18 +1,13 @@
 import React from 'react';
 import { StyledNavLink, StyledNav } from './UserMenu.styled.jsx'
 
-const Navigation = () => (
+const UserMenu = () => (
     <StyledNav>
         <StyledNavLink
-            exact
             to="/"
-            
-            activeClassName="activeLink">Contacts</StyledNavLink>
-        <StyledNavLink
-            to="/movies"
            
-            activeClassName="activeLink">Movies</StyledNavLink>
+            activeClassName="activeLink">Log out</StyledNavLink>
     </StyledNav>
 )
 
-export default Navigation;
+export default UserMenu;
