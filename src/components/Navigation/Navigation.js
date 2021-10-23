@@ -7,11 +7,11 @@ const Navigation = () => (
             exact
             to="/"
             
-            activeClassName="activeLink">Contacts</StyledNavLink>
+            activeClassName="activeLink">Home</StyledNavLink>
         <StyledNavLink
             to="/movies"
            
-            activeClassName="activeLink">Movies</StyledNavLink>
+            activeClassName="activeLink">Contacts</StyledNavLink>
     </StyledNav>
 )
 
