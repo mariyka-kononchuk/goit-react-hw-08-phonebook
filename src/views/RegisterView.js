@@ -49,7 +49,7 @@ export default function RegisterView() {
                         <span className=''>Email</span>
                         <input
                             className=''
-                            type="text"
+                            type="email"
                             name="email"
                             value={email}
                             onChange={handleChange}
@@ -62,7 +62,7 @@ export default function RegisterView() {
                         <span className=''>Password</span>
                         <input
                             className=''
-                            type="text"
+                            type="password"
                             name="password"
                             value={password}
                             onChange={handleChange}

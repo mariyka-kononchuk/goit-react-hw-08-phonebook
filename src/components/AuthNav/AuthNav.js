@@ -9,6 +9,7 @@ const AuthNav = () => (
             
             activeClassName="activeLink">Register</StyledNavLink>
         <StyledNavLink
+            exact
             to="/login"
            
             activeClassName="activeLink">Login</StyledNavLink>
