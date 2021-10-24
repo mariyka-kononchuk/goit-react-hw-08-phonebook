@@ -33,11 +33,11 @@ export default function App() {
                 <RegisterView />
               </PublicRoute>
 
-              <PublicRoute exact path="/login" restricted>
+              <PublicRoute exact path="/login" redirectTo="/contacts" restricted>
                 <LoginView />
               </PublicRoute>
 
-              <PrivateRoute path="/contacts">
+              <PrivateRoute path="/contacts" redirectTo="/login">
                 <ContactsView />
               </PrivateRoute>
 
