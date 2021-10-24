@@ -11,7 +11,7 @@ import {
     fetchContactError
 } from './contacts-action'
 
-axios.defaults.baseURL = 'http://localhost:4040';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const fetchContacts = () => async dispatch => {
     dispatch(fetchContactRequest());
@@ -21,14 +21,8 @@ export const fetchContacts = () => async dispatch => {
         const { data } = await axios.get('/contacts');
         dispatch(fetchContactSuccess(data))
     } catch (error) {
-        dispatch(fetchContactError(error))
+        dispatch(fetchContactError(error.message))
     }
-    
-    //синхронный код
-    // axios
-    //     .get('/contacts')
-    //     .then(({ data }) => dispatch(fetchContactSuccess(data)))
-    //     .catch(error => dispatch(fetchContactError(error)))
 }
 
 export const addContact = ({ name, number }) => async dispatch => {
@@ -45,11 +39,6 @@ export const addContact = ({ name, number }) => async dispatch => {
     } catch (error) {
         dispatch(addContactError(error))
     }
-
-    // axios
-    //     .post('/contacts', contact)
-    //     .then(({ data }) => dispatch(addContactSuccess(data)))
-    //     .catch(error => dispatch(addContactError(error)));
 }
 
 export const deleteContact = contactId => async dispatch => {
@@ -61,10 +50,5 @@ export const deleteContact = contactId => async dispatch => {
     } catch (error) {
         dispatch(deleteContactError(error))
     }
-
-    // axios
-    //     .delete(`/contacts/${contactId}`)
-    //     .then(() => dispatch(deleteContactSuccess(contactId)))
-    //     .catch(error => dispatch(deleteContactError(error)));
 }
 

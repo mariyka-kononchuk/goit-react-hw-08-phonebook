@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import {useDispatch} from 'react-redux' 
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import {fetchContacts} from '../../redux/contacts/contacts-operations'
+import { fetchCurrentUser } from '../../redux/auth/auth-operations';
 import Container from '../Container';
 import HomeView from '../../views/HomeView';
 import LoginView from '../../views/LoginView';
@@ -9,9 +9,13 @@ import RegisterView from '../../views/RegisterView';
 import ContactsView from '../../views/ContactsView';
 import AppBar from '../AppBar';
 
-
 export default function App() {
-  fetchContacts();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser())
+  }, [dispatch])
+  
     return (
       <Container>
         <AppBar />
@@ -28,10 +32,5 @@ export default function App() {
   
 }
 
-// const mapDispatchToProps = dispatch => ({
-//   fetchContacts: () => dispatch(fetchContacts())
-// })
-
-// export default connect(null, mapDispatchToProps)(App);
 
 
