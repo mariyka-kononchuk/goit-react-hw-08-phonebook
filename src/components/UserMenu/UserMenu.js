@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../redux/auth/auth-operations';
-import  authSelectors  from '../../redux/auth/auth-selectors';
+import  {getUserName} from '../../redux/auth/auth-selectors';
 // import defaultAvatar from 
 
 export default function UserMenu() {
     const dispatch = useDispatch();
-    const name = useSelector(authSelectors.getUserName);
+    const name = useSelector(getUserName);
     // const avatar = defaultAvatar;
 
     return (

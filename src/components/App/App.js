@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import {useDispatch} from 'react-redux' 
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { fetchCurrentUser } from '../../redux/auth/auth-operations';
 import Container from '../Container';
-import HomeView from '../../views/HomeView';
-import LoginView from '../../views/LoginView';
-import RegisterView from '../../views/RegisterView';
-import ContactsView from '../../views/ContactsView';
 import AppBar from '../AppBar';
+import PrivateRoute from '../PrivateRoute';
+import PublicRoute from '../PublicRoute';
+
+const HomeView = lazy(() => import('../../views/HomeView'));
+const RegisterView = lazy(() => import('../../views/RegisterView'));
+const LoginView = lazy(() => import('../../views/LoginView'));
+const ContactsView = lazy(() => import('../../views/ContactsView'));
 
 export default function App() {
   const dispatch = useDispatch();
@@ -19,17 +22,29 @@ export default function App() {
     return (
       <Container>
         <AppBar />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Switch>
+            
+              <PublicRoute exact path="/">
+                <HomeView />
+              </PublicRoute>
 
-        <Switch>
-          <Route exact path="/" component={HomeView} />
-          <Route exact path="/register" component={RegisterView} />
-          <Route exact path="/login" component={LoginView} />
-          <Route exact path="/contacts" component={ContactsView} />
-        </Switch>
-       
+              <PublicRoute exact path="/register" restricted>
+                <RegisterView />
+              </PublicRoute>
+
+              <PublicRoute exact path="/login" restricted>
+                <LoginView />
+              </PublicRoute>
+
+              <PrivateRoute path="/contacts">
+                <ContactsView />
+              </PrivateRoute>
+
+            </Switch>
+          </Suspense>
       </Container>
     );
-  
 }
 
 
