@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../redux/auth/auth-operations';
-import  {getUserName} from '../../redux/auth/auth-selectors';
+import { getUserName } from '../../redux/auth/auth-selectors';
+import {Name, LogOutButton} from './UserMenu.styled.jsx'
 // import defaultAvatar from 
 
 export default function UserMenu() {
@@ -9,11 +10,11 @@ export default function UserMenu() {
     // const avatar = defaultAvatar;
 
     return (
-        <div>
+        <UserMenu>
             <img src="" alt="" width="32" />
-            <span>Welcome, {name}</span>
-            <button type="button" onClick ={() =>dispatch(logOut())}> Log out</button>
-        </div>
+            <Name>Welcome, {name}</Name>
+            <LogOutButton type="button" onClick ={() =>dispatch(logOut())}>Log out</LogOutButton>
+        </UserMenu>
     )
 }
     
