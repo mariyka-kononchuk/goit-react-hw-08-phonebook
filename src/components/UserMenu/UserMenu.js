@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../redux/auth/auth-operations';
 import { getUserName } from '../../redux/auth/auth-selectors';
-import {Name, LogOutButton} from './UserMenu.styled.jsx'
+import { Name, LogOutButton } from './UserMenu.styled.jsx';
+import { Button } from 'antd';
 // import defaultAvatar from 
 
 export default function UserMenu() {
@@ -13,7 +14,7 @@ export default function UserMenu() {
         <UserMenu>
             <img src="" alt="" width="32" />
             <Name>Welcome, {name}</Name>
-            <LogOutButton type="button" onClick ={() =>dispatch(logOut())}>Log out</LogOutButton>
+            <Button type="primary" onClick ={() =>dispatch(logOut())}>Log out</Button>
         </UserMenu>
     )
 }

@@ -1,5 +1,5 @@
 //with Redux Toolkit
-import { configureStore, getDefaultMiddleware, combineReducers } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import logger from 'redux-logger';
 import {
     persistStore,
@@ -24,23 +24,11 @@ const middleware = [...getDefaultMiddleware({
 }),
     logger]
 
-//localStorage
-// const persistConfig = {
-//     key: 'contacts',
-//     storage
-// }
-
 const authPersistConfig = {
     key: 'auth',
     storage,
     whitelist: ['token'],
 }
-
-// const rootReducer = combineReducers({
-//     contacts: contactsReducer,
-// })
-
-// const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
     reducer: {
@@ -54,5 +42,4 @@ export const store = configureStore({
 //обертка над store, которая реализует обновление LocalStorage
 export const persistor = persistStore(store);
 
-// export default { store, persistor };
 

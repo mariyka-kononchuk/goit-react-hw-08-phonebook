@@ -1,7 +1,11 @@
 import React from 'react';
+import 'antd/dist/antd.css';
+import { Typography } from 'antd';
+
+const { Title } = Typography;
 
 const HomeView = () => (
-    <h1>  Home page </h1>
+    <Title>  Home page </Title>
 )
   
 export default HomeView
