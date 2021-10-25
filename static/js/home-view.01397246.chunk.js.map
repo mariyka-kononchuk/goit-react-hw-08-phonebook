@@ -1,0 +1,1 @@
+{"version":3,"sources":["views/HomeView.js"],"names":["HomeView"],"mappings":"+IAAA,uBAMeA,UAJE,kBACb","file":"static/js/home-view.01397246.chunk.js","sourcesContent":["import React from 'react';\r\n\r\nconst HomeView = () => (\r\n    <h1>  Home page </h1>\r\n)\r\n  \r\nexport default HomeView"],"sourceRoot":""}
