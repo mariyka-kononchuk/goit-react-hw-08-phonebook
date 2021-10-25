@@ -1,8 +1,6 @@
 import {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../redux/auth/auth-operations';
-import 'antd/dist/antd.css';
-import { Form, Input, Button } from 'antd';
 
 export default function RegisterView() {
     const dispatch = useDispatch();
@@ -32,18 +30,11 @@ export default function RegisterView() {
 
     return (
         <div>
-            <Form onSubmit={handleSubmit} autoComplete="off" name="basic">
-                <Form.Item
-                    label="Name"
-                    name="name"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your name',
-                        },
-                    ]}
-                > 
-                        <Input
+            <form onSubmit={handleSubmit} className='' autoComplete="off">
+                <label className=''>
+                        <span className=''>Name</span>
+                        <input
+                            className=''
                             type="text"
                             name="name"
                             value={name}
@@ -52,18 +43,11 @@ export default function RegisterView() {
                             // title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
                             // required
                         />
-                    </Form.Item>
-                <Form.Item
-                    label="Email"
-                    name="email"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your email',
-                        },
-                    ]}>
-                        
-                        <Input
+                    </label>
+                    <label className=''>
+                        <span className=''>Email</span>
+                        <input
+                            className=''
                             type="email"
                             name="email"
                             value={email}
@@ -72,25 +56,19 @@ export default function RegisterView() {
                             // title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
                             // required
                         />
-                </Form.Item>
-                <Form.Item
-                    label="Password"
-                    name="password"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your password',
-                        },
-                    ]}>
-                        <Input
+                </label>
+                <label className=''>
+                        <span className=''>Password</span>
+                        <input
+                            className=''
                             type="password"
                             name="password"
                             value={password}
                             onChange={handleChange}
                         />
-                    </Form.Item>
-                    <Button type="primary">Register</Button>
-                </Form>
+                    </label>
+                    <button className='' type="submit">Register</button>
+                </form>
         </div>
     )
 }
