@@ -9,4 +9,3 @@ export const authSelectors = {
     getUserName,
 }
 
-// export default authSelectors;

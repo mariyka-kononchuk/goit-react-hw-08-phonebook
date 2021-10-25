@@ -1,4 +1,3 @@
-//without Redux Toolkit
 import { createAction } from '@reduxjs/toolkit';
 
 export const fetchContactRequest = createAction('contacts/fetchContactRequest');
