@@ -8,10 +8,10 @@ import AppBar from '../AppBar';
 import PrivateRoute from '../PrivateRoute';
 import PublicRoute from '../PublicRoute';
 
-const HomeView = lazy(() => import('../../views/HomeView'));
-const RegisterView = lazy(() => import('../../views/RegisterView'));
-const LoginView = lazy(() => import('../../views/LoginView'));
-const ContactsView = lazy(() => import('../../views/ContactsView'));
+const HomeView = lazy(() => import('../../views/HomeView' /*webpackChunkName: "home-view" */));
+const RegisterView = lazy(() => import('../../views/RegisterView' /*webpackChunkName: "register-view" */));
+const LoginView = lazy(() => import('../../views/LoginView' /*webpackChunkName: "login-view" */));
+const ContactsView = lazy(() => import('../../views/ContactsView' /*webpackChunkName: "contacts-view" */));
 
 export default function App() {
   const dispatch = useDispatch();
