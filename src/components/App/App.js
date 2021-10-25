@@ -1,7 +1,8 @@
 import React, { useEffect, Suspense, lazy } from 'react';
-import {useDispatch} from 'react-redux' 
-import { Switch, Route, Redirect } from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux' 
+import { Switch } from 'react-router-dom';
 import { fetchCurrentUser } from '../../redux/auth/auth-operations';
+import { getIsFetchingCurrent } from '../../redux/auth/auth-selectors';
 import Container from '../Container';
 import AppBar from '../AppBar';
 import PrivateRoute from '../PrivateRoute';
@@ -14,13 +15,15 @@ const ContactsView = lazy(() => import('../../views/ContactsView'));
 
 export default function App() {
   const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(getIsFetchingCurrent);
 
   useEffect(() => {
     dispatch(fetchCurrentUser())
   }, [dispatch])
   
-    return (
-      <Container>
+  return (
+    !isFetchingCurrentUser && (
+       <Container>
         <AppBar />
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
@@ -44,7 +47,8 @@ export default function App() {
             </Switch>
           </Suspense>
       </Container>
-    );
+    )
+  );
 }
 
 
