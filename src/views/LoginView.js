@@ -21,18 +21,7 @@ export default function LoginView() {
     
     const handleChangePassword = (event) => {
     setPassword(event.target.value);
-  };
-
-    // const handleChange = ({ target: { name, value } }) => {
-    //     switch (name) {
-    //         case 'email':
-    //             return setEmail(value);
-    //         case 'password':
-    //             return setPassword(value);
-    //         default:
-    //             return;
-    //     }
-    // }
+    };
 
     const handleSubmit = e => {
         e.preventDefault();

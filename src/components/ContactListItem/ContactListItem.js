@@ -1,19 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {deleteContact} from '../../redux/contacts/contacts-operations'
-import s from './ContactListItem.module.css';
+import { deleteContact } from '../../redux/contacts/contacts-operations';
+import Button from '@mui/material/Button';
+import { DeleteOutline } from '@mui/icons-material';
+import { Item, Contact, Name, Number } from './ContactListItem.styled'
 
 const ContactListItem = ({contacts, onDeleteContact }) => (
-    <div className={s.item}>
-        <p className={s.contact}>
-            <span className={s.name}>{contacts.name}:
-            </span>
-            <span className={s.number}>{contacts.number}
-            </span>
-        </p>
-        <button className={s.button} onClick={()=> onDeleteContact(contacts.id)}>Delete</button>
-    </div> 
+    <Item>
+        <Contact>
+            <Name>{contacts.name}:</Name>
+            <Number>{contacts.number}</Number>
+        </Contact>
+    <Button
+      sx={{
+        width: 120,
+      }}
+      variant="contained"
+      onClick={() => onDeleteContact(contacts.id)}
+      endIcon={<DeleteOutline />}>
+      Delete
+    </Button>
+    </Item> 
 )
 
 const mapDispatchToProps = dispatch => {

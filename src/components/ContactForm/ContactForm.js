@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
-import s from './ContactForm.module.css';
+import {AddIcCall} from '@mui/icons-material';
 
 class ContactForm extends Component {
     state = {
@@ -66,11 +66,11 @@ class ContactForm extends Component {
                 component="form"
                 sx={{
                     display: 'flex',
+                    mb:2,
                     flexDirection: { xs: 'column', md: 'column' },
                     width: 400,
                     '& > :not(style)': { m: 1 },
                 }}
-                // noValidate
                 onSubmit={this.handleSubmit}>
                 <FormControl variant="standard">
                     <InputLabel>Name</InputLabel>
@@ -96,7 +96,9 @@ class ContactForm extends Component {
                         width: 180,
                     }}
                     variant="contained"
-                    type="submit">
+                    type="submit"
+                    endIcon={<AddIcCall />}
+                >
                     Add contact
                 </Button>
             </Box>

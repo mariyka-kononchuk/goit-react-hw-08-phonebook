@@ -3,18 +3,29 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/contacts/contacts-action';
 import {getFilter} from '../../redux/contacts/contacts-selectors';
 import PropTypes from 'prop-types';
-import s from './Filter.module.css';
+import Typography from '@mui/material/Typography';
+import OutlinedInput from '@mui/material/OutlinedInput';
 
 const Filter = ({ value, onChange }) => (
-    <label className={s.label}>
-        <span className={s.title}>Find contacts by name</span>
-        <input
-            className={s.input}
-            type="text"
-            value={value}
-            onChange={onChange}
-        />
-    </label>
+  <div >
+    <Typography
+      sx={{         
+        color: '#42a5f5',    
+      }}
+      variant="h6"
+      component="div"
+      gutterBottom>
+          Find contacts by name
+    </Typography>
+    <OutlinedInput
+      sx={{         
+        width: 250,
+        height: 40,    
+      }}
+      type="text"
+      value={value}
+      onChange={onChange}/>
+  </div>
 )
 
 const mapStateToProps = state => {
