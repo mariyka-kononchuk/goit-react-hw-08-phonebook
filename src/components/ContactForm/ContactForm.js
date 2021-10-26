@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import { addContact } from '../../redux/contacts/contacts-operations';
 import { getContacts } from '../../redux/contacts/contacts-selectors';
 import PropTypes from 'prop-types';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
 import s from './ContactForm.module.css';
 
 class ContactForm extends Component {
@@ -18,6 +23,18 @@ class ContactForm extends Component {
             [name]: value,
         });
     }
+
+    handleChangeName = (event) => {
+        this.setState({
+            name:event.target.value
+        });
+    };
+
+     handleChangeNumber = (event) => {
+        this.setState({
+            number:event.target.value
+        });
+    };
 
     handleSubmit = e => {
         e.preventDefault();
@@ -45,36 +62,44 @@ class ContactForm extends Component {
         const { name, number } = this.state;
         
         return (
-            
-            <form onSubmit={this.handleSubmit} className={s.form}>
-                    <label className={s.label}>
-                        <span className={s.title}>Name</span>
-                        <input
-                            className={s.input}
-                            type="text"
-                            name="name"
-                            value={name}
-                            onChange={this.handleChange}
-                            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-                            required
+            <Box
+                component="form"
+                sx={{
+                    display: 'flex',
+                    flexDirection: { xs: 'column', md: 'column' },
+                    width: 400,
+                    '& > :not(style)': { m: 1 },
+                }}
+                // noValidate
+                onSubmit={this.handleSubmit}>
+                <FormControl variant="standard">
+                    <InputLabel>Name</InputLabel>
+                    <Input
+                        type="text"
+                        value={name}
+                        onChange={this.handleChangeName}
+                        inputProps={{ inputMode: 'text', pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$" }}
+                       />
+                </FormControl>
+                <FormControl
+                    variant="standard">
+                    <InputLabel>Number</InputLabel>
+                    <Input
+                        type="text"
+                        value={number}
+                        onChange={this.handleChangeNumber}
+                        inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                         />
-                    </label>
-                    <label className={s.label}>
-                        <span className={s.title}>Number</span>
-                        <input
-                            className={s.input}
-                            type="tel"
-                            name="number"
-                            value={number}
-                            onChange={this.handleChange}
-                            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
-                            required
-                        />
-                    </label>
-                    <button className={s.button} type="submit">Add contact</button>
-                </form>
+                </FormControl>
+                <Button
+                    sx={{
+                        width: 180,
+                    }}
+                    variant="contained"
+                    type="submit">
+                    Add contact
+                </Button>
+            </Box>
         )
     }
 }

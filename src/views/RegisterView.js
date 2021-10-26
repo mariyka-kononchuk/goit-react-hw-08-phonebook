@@ -64,7 +64,7 @@ export default function RegisterView() {
                         value={password}
                         onChange={handleChangePassword} />
                 </FormControl>
-                    <Button variant="contained"type="submit">Register</Button>
+                    <Button variant="contained" type="submit">Register</Button>
             </Box>
         </div>
     )
