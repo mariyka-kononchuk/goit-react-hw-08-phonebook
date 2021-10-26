@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/contacts/contacts-action';
 import {getFilter} from '../../redux/contacts/contacts-selectors';
 import PropTypes from 'prop-types';
+import { Wrapper } from './Filter.styled'
 import Typography from '@mui/material/Typography';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
 const Filter = ({ value, onChange }) => (
-  <div >
+  <Wrapper>
     <Typography
       sx={{         
         color: '#42a5f5',    
@@ -25,7 +26,7 @@ const Filter = ({ value, onChange }) => (
       type="text"
       value={value}
       onChange={onChange}/>
-  </div>
+  </Wrapper>
 )
 
 const mapStateToProps = state => {

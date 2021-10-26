@@ -66,7 +66,7 @@ class ContactForm extends Component {
                 component="form"
                 sx={{
                     display: 'flex',
-                    mb:2,
+                    mb:4,
                     flexDirection: { xs: 'column', md: 'column' },
                     width: 400,
                     '& > :not(style)': { m: 1 },

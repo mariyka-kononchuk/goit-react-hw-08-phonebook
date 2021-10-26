@@ -4,14 +4,22 @@ import { connect } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/contacts-operations';
 import Button from '@mui/material/Button';
 import { DeleteOutline } from '@mui/icons-material';
-import { Item, Contact, Name, Number } from './ContactListItem.styled'
+import { Item, Contact, Name, Number } from './ContactListItem.styled';
+import { Phone, Person } from '@mui/icons-material';
+import IconButton from '@mui/material/IconButton';
 
 const ContactListItem = ({contacts, onDeleteContact }) => (
     <Item>
-        <Contact>
-            <Name>{contacts.name}:</Name>
-            <Number>{contacts.number}</Number>
-        </Contact>
+      <Contact>
+        <IconButton disabled color="primary">
+          <Person />
+        </IconButton>
+      <Name>{contacts.name}</Name>
+      <IconButton disabled color="primary">
+          <Phone />
+        </IconButton>
+        <Number>{contacts.number}</Number>
+      </Contact>
     <Button
       sx={{
         width: 120,

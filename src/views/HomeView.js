@@ -1,7 +1,16 @@
 import React from 'react';
+import Typography from '@mui/material/Typography';
 
 const HomeView = () => (
-    <h1>  Home page </h1>
+    <Typography
+          sx={{         
+            color: '#808090',    
+          }}
+          variant="h1"
+          component="div"
+          gutterBottom>
+          Home page
+        </Typography>
 )
   
 export default HomeView
